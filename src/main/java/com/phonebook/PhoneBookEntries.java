@@ -4,21 +4,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * The type Phone book entries.
+ */
 public class PhoneBookEntries {
+    /**
+     * The Phone map.
+     */
     static HashMap<String, String> phoneMap = new HashMap<>();
          static {
                 phoneMap.put("Akshit","9897999999");
                 phoneMap.put("Shubham","8171989888");
             }
+
+    /**
+     * The Phone map entries.
+     */
     Map<String, String> phoneMapEntries = phoneMap;
 
-     public Optional<String> findPhoneNumberByName(String name) {
+    /**
+     * Find phone number by name optional.
+     *
+     * @param name the name
+     * @return the optional
+     */
+    public Optional<String> findPhoneNumberByName(String name) {
         if (phoneMapEntries.containsKey(name)) {
             return Optional.of(phoneMapEntries.get(name));
         }
         return Optional.empty();
     }
 
+    /**
+     * Find name by phone number optional.
+     *
+     * @param phoneNumber the phone number
+     * @return the optional
+     */
     public Optional<String> findNameByPhoneNumber(String phoneNumber) {
 
         for (Map.Entry<String, String> entry : phoneMapEntries.entrySet()) {
